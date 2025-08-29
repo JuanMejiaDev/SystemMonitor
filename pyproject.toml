@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "SystemMonitor"
+version = "0.1.0"
+description = "Lightweight system monitoring and alerting library for Python apps"
+authors = [{ name = "Juan Mejia", email = "mejiajuan1503@hotmail.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "psutil",
+    "requests"
+]
+
+[project.urls]
+Homepage = "https://github.com/tuusuario/SystemMonitor"
+Issues = "https://github.com/tuusuario/SystemMonitor/issues"
