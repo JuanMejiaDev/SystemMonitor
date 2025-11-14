@@ -33,6 +33,9 @@ class State:
     network: Dict[str, float]
     battery: Optional[Dict[str, float]]
     top_processes: List[ProcessInfo]
+    temperatures: Dict[str, List[Dict[str, float]]]
+    fans: Dict[str, List[Dict[str, float]]]
+    network_interfaces: Dict[str, Dict[str, float]]
     timestamp: datetime.datetime
 
     def __str__(self):
@@ -43,6 +46,9 @@ class State:
             f"{self.battery['percent']}% (plugged: {self.battery['plugged']})"
             if self.battery else "N/A"
         )
+        temps_str = "\n  ".join("{}: {}".format(k, ", ".join("{0} {1}°C".format(t['label'], t['current']) for t in v)) for k, v in self.temperatures.items())
+        fans_str = "\n  ".join("{}: {}".format(k, ", ".join("{0} {1} RPM".format(f['label'], f['current']) for f in v)) for k, v in self.fans.items())
+        net_if_str = "\n  ".join("{}: Sent {:.1f} MB / Recv {:.1f} MB".format(k, v['sent_mb'], v['recv_mb']) for k, v in self.network_interfaces.items())
         return (
             f"=== System State @ {self.timestamp.strftime('%Y-%m-%d %H:%M:%S')} ===\n"
             f"CPU: {self.cpu:.0f}% | RAM: {self.ram:.0f}% | Uptime: {self.uptime}\n"
@@ -50,5 +56,8 @@ class State:
             f"Battery: {bat_str}\n"
             f"Disks:\n  {disks_str}\n"
             f"GPUs: {gpus_str}\n"
+            f"Temperatures:\n  {temps_str}\n"
+            f"Fans:\n  {fans_str}\n"
+            f"Network Interfaces:\n  {net_if_str}\n"
             f"Top processes:\n  {procs_str}\n"
         )

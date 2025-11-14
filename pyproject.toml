@@ -15,6 +15,14 @@ dependencies = [
     "requests"
 ]
 
+[project.optional-dependencies]
+gpu = [
+    "GPUtil"
+]
+email = [
+    "secure-smtplib"
+]
+
 [project.urls]
 Homepage = "https://github.com/JuanMejiaDev/SystemMonitor"
 Issues = "https://github.com/JuanMejiaDev/SystemMonitor/issues"
