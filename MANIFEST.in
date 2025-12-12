@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+include efficiency_demo.py
+include integration_examples.py
+include integration_test.py
+recursive-include SystemMonitor *.py

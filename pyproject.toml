@@ -10,19 +10,36 @@ authors = [{ name = "Juan Mejia", email = "mejiajuan1503@hotmail.com" }]
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.8"
+keywords = ["monitoring", "system", "alerts", "cpu", "memory", "disk", "network", "gpu"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Monitoring",
+    "Topic :: Utilities"
+]
 dependencies = [
-    "psutil",
-    "requests"
+    "psutil>=5.8.0",
+    "requests>=2.25.0"
 ]
 
 [project.optional-dependencies]
 gpu = [
-    "GPUtil"
+    "GPUtil>=1.4.0"
 ]
 email = [
-    "secure-smtplib"
+    "secure-smtplib>=0.1.1"
 ]
 
 [project.urls]
 Homepage = "https://github.com/JuanMejiaDev/SystemMonitor"
+Documentation = "https://github.com/JuanMejiaDev/SystemMonitor#readme"
+Repository = "https://github.com/JuanMejiaDev/SystemMonitor"
 Issues = "https://github.com/JuanMejiaDev/SystemMonitor/issues"
